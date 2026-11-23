@@ -1,0 +1,28 @@
+
+name: BacusPreview
+
+options:
+  bundleIdPrefix: com.bacus
+  deploymentTarget:
+    iOS: "10.0"
+
+targets:
+  BacusPreview:
+    type: application
+    platform: iOS
+
+    sources:
+      - path: BacoTrampoline
+      - path: BacusDesktop
+      - path: BacusPreview
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bacus.desktop.preview
+        PRODUCT_NAME: Bacus Desktop Preview
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Bacus Desktop
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        CLANG_ENABLE_OBJC_ARC: YES
+        IPHONEOS_DEPLOYMENT_TARGET: "10.0"
