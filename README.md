@@ -1,40 +1,35 @@
-# Bacus Desktop for iOS
 
-A custom desktop environment for iOS.
+# Bacus Desktop
 
-## Project goals
+Bacus Desktop is an alternative desktop environment project for iOS.
 
-- Custom desktop interface
-- Window management
-- Dock
-- Menu bar
-- Application launcher
-- Widgets
-- Custom themes
-- Compatibility adaptations for iOS 10 through iOS 18, iOS 26 and iOS 27
+## Architecture
 
-## Technology
+- **Bacus Desktop:** The complete user-facing desktop environment.
+- **Baco Trampoline:** The internal desktop engine.
+- **Bacus Preview:** Standalone application for interface testing.
+- **iOS Integration:** Future system integration components.
+
+## Initial themes
+
+- Classic 2000
+- Bacus Glass
+- Bacus Dark
+
+## Technologies
 
 - Objective-C
 - UIKit
 - Theos
-- Logos
+- XcodeGen
+- GitHub Actions
 
-## Build
+## Compatibility goals
 
-Traditional package:
+iOS 10–18, iOS 26 and iOS 27.
 
-```bash
-make clean package
-```
-
-Rootless package:
-
-```bash
-make clean
-make package THEOS_PACKAGE_SCHEME=rootless
-```
+Compatibility must be verified separately for each version and device.
 
 ## License
 
-GNU General Public License v3.0 or later.
+GNU GPL-3.0-or-later.
