@@ -2,33 +2,12 @@
 #import <UIKit/UIKit.h>
 #import "BTWindow.h"
 
-FOUNDATION_EXPORT NSString * const BTWindowManagerDidChangeNotification;
+@interface BTWindowView : UIView
 
-@interface BTWindowManager : NSObject
+@property (nonatomic, strong, readonly) BTWindow *managedWindow;
 
-@property (nonatomic, assign, readonly) NSInteger currentWorkspace;
+- (instancetype)initWithWindow:(BTWindow *)window;
 
-@property (nonatomic, copy, readonly) NSArray<BTWindow *> *windows;
-
-+ (instancetype)sharedManager;
-
-- (BTWindow *)openWindowWithTitle:(NSString *)title
-                            frame:(CGRect)frame;
-
-- (void)closeWindow:(BTWindow *)window;
-
-- (void)minimizeWindow:(BTWindow *)window;
-
-- (void)toggleMaximizeWindow:(BTWindow *)window
-                withinBounds:(CGRect)bounds;
-
-- (void)moveWindow:(BTWindow *)window
-           toFrame:(CGRect)frame;
-
-- (void)bringWindowToFront:(BTWindow *)window;
-
-- (void)switchToWorkspace:(NSInteger)workspace;
-
-- (NSArray<BTWindow *> *)windowsForWorkspace:(NSInteger)workspace;
+- (void)updateFromModel;
 
 @end
