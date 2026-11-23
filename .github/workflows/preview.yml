@@ -1,0 +1,45 @@
+
+name: Bacus Desktop Preview - Build
+
+on:
+  push:
+    branches:
+      - main
+      - pruebas
+  pull_request:
+    branches:
+      - main
+      - pruebas
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build iOS Preview
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build Simulator App
+        run: |
+          xcodebuild \
+            -project BacusPreview.xcodeproj \
+            -scheme BacusPreview \
+            -sdk iphonesimulator \
+            -configuration Debug \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Upload simulator build
+        uses: actions/upload-artifact@v4
+        with:
+          name: BacusDesktop-Preview-Simulator
+          path: build/Build/Products/Debug-iphonesimulator/BacusPreview.app
