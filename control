@@ -1,0 +1,9 @@
+
+Package: com.bacus.desktopios
+Name: Bacus Desktop for iOS
+Version: 0.1.0
+Architecture: iphoneos-arm
+Description: A custom desktop interface for iOS.
+Maintainer: Guafguaf Company
+Author: Ciberspar
+Section: Tweaks
